@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		FC37DF5825F74E8900AF2402 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37DF5725F74E8900AF2402 /* AppDelegate.swift */; };
 		FC37DF5A25F74E8900AF2402 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37DF5925F74E8900AF2402 /* SceneDelegate.swift */; };
-		FC37DF5C25F74E8900AF2402 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37DF5B25F74E8900AF2402 /* ViewController.swift */; };
-		FC37DF5F25F74E8900AF2402 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC37DF5D25F74E8900AF2402 /* Main.storyboard */; };
+		FC37DF5C25F74E8900AF2402 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37DF5B25F74E8900AF2402 /* HomeViewController.swift */; };
 		FC37DF6125F74E8B00AF2402 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC37DF6025F74E8B00AF2402 /* Assets.xcassets */; };
 		FC37DF6425F74E8B00AF2402 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC37DF6225F74E8B00AF2402 /* LaunchScreen.storyboard */; };
 		FC37DF6F25F74E8C00AF2402 /* SnakeGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37DF6E25F74E8C00AF2402 /* SnakeGameTests.swift */; };
@@ -38,8 +37,7 @@
 		FC37DF5425F74E8900AF2402 /* SnakeGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnakeGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC37DF5725F74E8900AF2402 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC37DF5925F74E8900AF2402 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FC37DF5B25F74E8900AF2402 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FC37DF5E25F74E8900AF2402 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FC37DF5B25F74E8900AF2402 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FC37DF6025F74E8B00AF2402 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC37DF6325F74E8B00AF2402 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC37DF6525F74E8B00AF2402 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,13 +97,9 @@
 		FC37DF5625F74E8900AF2402 /* SnakeGame */ = {
 			isa = PBXGroup;
 			children = (
-				FC37DF5725F74E8900AF2402 /* AppDelegate.swift */,
-				FC37DF5925F74E8900AF2402 /* SceneDelegate.swift */,
-				FC37DF5B25F74E8900AF2402 /* ViewController.swift */,
-				FC37DF5D25F74E8900AF2402 /* Main.storyboard */,
-				FC37DF6025F74E8B00AF2402 /* Assets.xcassets */,
-				FC37DF6225F74E8B00AF2402 /* LaunchScreen.storyboard */,
-				FC37DF6525F74E8B00AF2402 /* Info.plist */,
+				FC37DFB325F7521C00AF2402 /* Feature */,
+				FC37DF9C25F7513700AF2402 /* Infrastructure */,
+				FC37DFA925F7519A00AF2402 /* Resource */,
 			);
 			path = SnakeGame;
 			sourceTree = "<group>";
@@ -126,6 +120,57 @@
 				FC37DF7B25F74E8C00AF2402 /* Info.plist */,
 			);
 			path = SnakeGameUITests;
+			sourceTree = "<group>";
+		};
+		FC37DF9725F7508900AF2402 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		FC37DF9825F750B100AF2402 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FC37DF5B25F74E8900AF2402 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FC37DF9C25F7513700AF2402 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				FC37DF9D25F7514800AF2402 /* AppDelegate */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		FC37DF9D25F7514800AF2402 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				FC37DF5725F74E8900AF2402 /* AppDelegate.swift */,
+				FC37DF5925F74E8900AF2402 /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		FC37DFA925F7519A00AF2402 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				FC37DF6025F74E8B00AF2402 /* Assets.xcassets */,
+				FC37DF6225F74E8B00AF2402 /* LaunchScreen.storyboard */,
+				FC37DF6525F74E8B00AF2402 /* Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		FC37DFB325F7521C00AF2402 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				FC37DF9825F750B100AF2402 /* Home */,
+				FC37DF9725F7508900AF2402 /* Game */,
+			);
+			path = Feature;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +278,6 @@
 			files = (
 				FC37DF6425F74E8B00AF2402 /* LaunchScreen.storyboard in Resources */,
 				FC37DF6125F74E8B00AF2402 /* Assets.xcassets in Resources */,
-				FC37DF5F25F74E8900AF2402 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC37DF5C25F74E8900AF2402 /* ViewController.swift in Sources */,
+				FC37DF5C25F74E8900AF2402 /* HomeViewController.swift in Sources */,
 				FC37DF5825F74E8900AF2402 /* AppDelegate.swift in Sources */,
 				FC37DF5A25F74E8900AF2402 /* SceneDelegate.swift in Sources */,
 			);
@@ -296,14 +340,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FC37DF5D25F74E8900AF2402 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FC37DF5E25F74E8900AF2402 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FC37DF6225F74E8B00AF2402 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -366,7 +402,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -421,7 +457,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -438,7 +474,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V4HTHZYDXC;
-				INFOPLIST_FILE = SnakeGame/Info.plist;
+				INFOPLIST_FILE = SnakeGame/Resource/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +493,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V4HTHZYDXC;
-				INFOPLIST_FILE = SnakeGame/Info.plist;
+				INFOPLIST_FILE = SnakeGame/Resource/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
