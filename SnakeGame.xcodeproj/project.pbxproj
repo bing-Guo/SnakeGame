@@ -12,8 +12,12 @@
 		FC37DF5C25F74E8900AF2402 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37DF5B25F74E8900AF2402 /* HomeViewController.swift */; };
 		FC37DF6125F74E8B00AF2402 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC37DF6025F74E8B00AF2402 /* Assets.xcassets */; };
 		FC37DF6425F74E8B00AF2402 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC37DF6225F74E8B00AF2402 /* LaunchScreen.storyboard */; };
-		FC37DF6F25F74E8C00AF2402 /* SnakeGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37DF6E25F74E8C00AF2402 /* SnakeGameTests.swift */; };
+		FC37DF6F25F74E8C00AF2402 /* SnakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37DF6E25F74E8C00AF2402 /* SnakeTests.swift */; };
 		FC37DF7A25F74E8C00AF2402 /* SnakeGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37DF7925F74E8C00AF2402 /* SnakeGameUITests.swift */; };
+		FC37E01425F7BF1700AF2402 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37E01325F7BF1700AF2402 /* Direction.swift */; };
+		FC37E01C25F7BFC000AF2402 /* Snake.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37E01B25F7BFC000AF2402 /* Snake.swift */; };
+		FC37E02125F7C26C00AF2402 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37E02025F7C26C00AF2402 /* Point.swift */; };
+		FC37E02A25F7D35C00AF2402 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37E02925F7D35C00AF2402 /* Queue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,11 +46,15 @@
 		FC37DF6325F74E8B00AF2402 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC37DF6525F74E8B00AF2402 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC37DF6A25F74E8C00AF2402 /* SnakeGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnakeGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC37DF6E25F74E8C00AF2402 /* SnakeGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeGameTests.swift; sourceTree = "<group>"; };
+		FC37DF6E25F74E8C00AF2402 /* SnakeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeTests.swift; sourceTree = "<group>"; };
 		FC37DF7025F74E8C00AF2402 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC37DF7525F74E8C00AF2402 /* SnakeGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnakeGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC37DF7925F74E8C00AF2402 /* SnakeGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeGameUITests.swift; sourceTree = "<group>"; };
 		FC37DF7B25F74E8C00AF2402 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC37E01325F7BF1700AF2402 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		FC37E01B25F7BFC000AF2402 /* Snake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snake.swift; sourceTree = "<group>"; };
+		FC37E02025F7C26C00AF2402 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		FC37E02925F7D35C00AF2402 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +115,7 @@
 		FC37DF6D25F74E8C00AF2402 /* SnakeGameTests */ = {
 			isa = PBXGroup;
 			children = (
-				FC37DF6E25F74E8C00AF2402 /* SnakeGameTests.swift */,
+				FC37DF6E25F74E8C00AF2402 /* SnakeTests.swift */,
 				FC37DF7025F74E8C00AF2402 /* Info.plist */,
 			);
 			path = SnakeGameTests;
@@ -125,6 +133,7 @@
 		FC37DF9725F7508900AF2402 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				FC37E01225F7BF0700AF2402 /* Model */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -140,6 +149,7 @@
 		FC37DF9C25F7513700AF2402 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				FC37E02825F7D33F00AF2402 /* DataStructure */,
 				FC37DF9D25F7514800AF2402 /* AppDelegate */,
 			);
 			path = Infrastructure;
@@ -171,6 +181,24 @@
 				FC37DF9725F7508900AF2402 /* Game */,
 			);
 			path = Feature;
+			sourceTree = "<group>";
+		};
+		FC37E01225F7BF0700AF2402 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FC37E01325F7BF1700AF2402 /* Direction.swift */,
+				FC37E01B25F7BFC000AF2402 /* Snake.swift */,
+				FC37E02025F7C26C00AF2402 /* Point.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FC37E02825F7D33F00AF2402 /* DataStructure */ = {
+			isa = PBXGroup;
+			children = (
+				FC37E02925F7D35C00AF2402 /* Queue.swift */,
+			);
+			path = DataStructure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,8 +331,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC37DF5C25F74E8900AF2402 /* HomeViewController.swift in Sources */,
+				FC37E02A25F7D35C00AF2402 /* Queue.swift in Sources */,
 				FC37DF5825F74E8900AF2402 /* AppDelegate.swift in Sources */,
+				FC37E02125F7C26C00AF2402 /* Point.swift in Sources */,
+				FC37E01C25F7BFC000AF2402 /* Snake.swift in Sources */,
 				FC37DF5A25F74E8900AF2402 /* SceneDelegate.swift in Sources */,
+				FC37E01425F7BF1700AF2402 /* Direction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC37DF6F25F74E8C00AF2402 /* SnakeGameTests.swift in Sources */,
+				FC37DF6F25F74E8C00AF2402 /* SnakeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
