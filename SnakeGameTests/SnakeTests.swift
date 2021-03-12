@@ -13,31 +13,31 @@ class SnakeTests: XCTestCase {
 
     // MARK: - Initial
     func testSnake_InitialLength_True() throws {
-        let snake = Snake(start: Point(x: 0, y: 0), direction: .right, length: 5, stepDistance: 10)
+        let snake = Snake(start: Point(x: 0, y: 0), direction: .right, length: 5, unit: 10)
 
         XCTAssertEqual(snake.queue.getSize(), 5)
     }
 
     func testSnake_InitialDirection_True() throws {
-        let snake = Snake(start: Point(x: 0, y: 0), direction: .down, length: 5, stepDistance: 10)
+        let snake = Snake(start: Point(x: 0, y: 0), direction: .down, length: 5, unit: 10)
 
         XCTAssertEqual(snake.direction, .down)
     }
 
     func testSnake_InitialPosition_True() throws {
-        let snake = Snake(start: Point(x: 0, y: 0), direction: .right, length: 3, stepDistance: 10)
+        let snake = Snake(start: Point(x: 0, y: 0), direction: .right, length: 3, unit: 10)
         let path = [
             Point(x: 0, y: 0),
             Point(x: 10, y: 0),
             Point(x: 20, y: 0)
         ]
 
-        XCTAssertEqual(snake.queue.array, path)
+        XCTAssertEqual(snake.path, path)
     }
 
     // MARK: - Move
     func testSnake_MoveRightOneStep_True() throws {
-        let snake = Snake(start: Point(x: 10, y: 10), direction: .right, length: 3, stepDistance: 10)
+        let snake = Snake(start: Point(x: 10, y: 10), direction: .right, length: 3, unit: 10)
         let path = [
             Point(x: 20, y: 10),
             Point(x: 30, y: 10),
@@ -46,11 +46,11 @@ class SnakeTests: XCTestCase {
 
         snake.moveForward()
 
-        XCTAssertEqual(snake.queue.array, path)
+        XCTAssertEqual(snake.path, path)
     }
 
     func testSnake_MoveDownOneStep_True() throws {
-        let snake = Snake(start: Point(x: 10, y: 10), direction: .right, length: 3, stepDistance: 10)
+        let snake = Snake(start: Point(x: 10, y: 10), direction: .right, length: 3, unit: 10)
         let path = [
             Point(x: 20, y: 10),
             Point(x: 30, y: 10),
@@ -60,11 +60,11 @@ class SnakeTests: XCTestCase {
         snake.turnDirection(.down)
         snake.moveForward()
 
-        XCTAssertEqual(snake.queue.array, path)
+        XCTAssertEqual(snake.path, path)
     }
 
     func testSnake_MoveUpOneStep_True() throws {
-        let snake = Snake(start: Point(x: 10, y: 10), direction: .right, length: 3, stepDistance: 10)
+        let snake = Snake(start: Point(x: 10, y: 10), direction: .right, length: 3, unit: 10)
         let path = [
             Point(x: 20, y: 10),
             Point(x: 30, y: 10),
@@ -74,11 +74,11 @@ class SnakeTests: XCTestCase {
         snake.turnDirection(.up)
         snake.moveForward()
 
-        XCTAssertEqual(snake.queue.array, path)
+        XCTAssertEqual(snake.path, path)
     }
 
     func testSnake_MoveLeftAndInvalidDirection_True() throws {
-        let snake = Snake(start: Point(x: 10, y: 10), direction: .right, length: 3, stepDistance: 10)
+        let snake = Snake(start: Point(x: 10, y: 10), direction: .right, length: 3, unit: 10)
         let path = [
             Point(x: 20, y: 10),
             Point(x: 30, y: 10),
@@ -88,12 +88,12 @@ class SnakeTests: XCTestCase {
         snake.turnDirection(.left)
         snake.moveForward()
 
-        XCTAssertEqual(snake.queue.array, path)
+        XCTAssertEqual(snake.path, path)
     }
 
     // MARK: - Collision
     func testSnake_DetectBodyCollision_True() throws {
-        let snake = Snake(start: Point(x: 10, y: 10), direction: .right, length: 5, stepDistance: 10)
+        let snake = Snake(start: Point(x: 10, y: 10), direction: .right, length: 5, unit: 10)
 
         snake.turnDirection(.down)
         snake.moveForward()
@@ -106,7 +106,7 @@ class SnakeTests: XCTestCase {
     }
 
     func testSnake_DetectBodyCollision_False() throws {
-        let snake = Snake(start: Point(x: 10, y: 10), direction: .right, length: 5, stepDistance: 10)
+        let snake = Snake(start: Point(x: 10, y: 10), direction: .right, length: 5, unit: 10)
 
         snake.turnDirection(.down)
         snake.moveForward()
@@ -117,12 +117,26 @@ class SnakeTests: XCTestCase {
     }
 
     func testSnake_DetectHeadOverlap_True() throws {
-        let snake = Snake(start: Point(x: 10, y: 10), direction: .right, length: 3, stepDistance: 10)
+        let snake = Snake(start: Point(x: 10, y: 10), direction: .right, length: 3, unit: 10)
         let point = Point(x: 50, y: 10)
 
         snake.moveForward()
         snake.moveForward()
 
         XCTAssertTrue(snake.isHeadOverlap(with: point), "snake's head point: \(snake.head) is not hit \(point)")
+    }
+
+    func testSnake_DetectHeadOutOfArea_True() throws {
+        let snake = Snake(start: Point(x: 90, y: 90), direction: .right, length: 5, unit: 10)
+        let area = Area(leftTop: Point(x: 0, y: 0), rightTop: Point(x: 100, y: 0), leftBottom: Point(x: 0, y: 100), rightBottom: Point(x: 100, y: 100))
+
+        XCTAssertTrue(snake.isHeadOutOfArea(area), "snake's head point: \(snake.head) is not in \(area)")
+    }
+
+    func testSnake_DetectHeadOutOfArea_False() throws {
+        let snake = Snake(start: Point(x: 50, y: 90), direction: .right, length: 5, unit: 10)
+        let area = Area(leftTop: Point(x: 0, y: 0), rightTop: Point(x: 100, y: 0), leftBottom: Point(x: 0, y: 100), rightBottom: Point(x: 100, y: 100))
+
+        XCTAssertFalse(snake.isHeadOutOfArea(area), "snake's head point: \(snake.head) is out of area \(area)")
     }
 }

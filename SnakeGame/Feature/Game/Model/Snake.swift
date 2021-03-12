@@ -1,9 +1,13 @@
 import Foundation
 
 class Snake {
-    let stepDistance: Int
+    private(set) var queue: Queue<Point> = Queue<Point>()
+    
+    let unit: Int
 
-    var queue: Queue<Point> = Queue<Point>()
+    var path: [Point] {
+        return queue.array
+    }
     var head: Point {
         return queue.getBack()!
     }
@@ -16,8 +20,8 @@ class Snake {
     private(set) var direction: Direction = .right
 
     // MARK: - Initializer
-    init(start: Point, direction: Direction, length: Int, stepDistance: Int) {
-        self.stepDistance = stepDistance
+    init(start: Point, direction: Direction, length: Int, unit: Int) {
+        self.unit = unit
         self.direction = direction
 
         queue.push(start)
@@ -25,10 +29,6 @@ class Snake {
         for _ in 1..<length {
             lengthenBody()
         }
-    }
-
-    convenience init(start: Point) {
-        self.init(start: start, direction: .right, length: 3, stepDistance: 10)
     }
 
     // MARK: - Method
@@ -47,13 +47,13 @@ class Snake {
     func lengthenBody() {
         switch direction {
         case .up:
-            queue.push(Point(x: head.x, y: head.y - stepDistance))
+            queue.push(Point(x: head.x, y: head.y - unit))
         case .left:
-            queue.push(Point(x: head.x - stepDistance, y: head.y))
+            queue.push(Point(x: head.x - unit, y: head.y))
         case .right:
-            queue.push(Point(x: head.x + stepDistance, y: head.y))
+            queue.push(Point(x: head.x + unit, y: head.y))
         case .down:
-            queue.push(Point(x: head.x, y: head.y + stepDistance))
+            queue.push(Point(x: head.x, y: head.y + unit))
         }
     }
 
@@ -63,6 +63,13 @@ class Snake {
 
     func isHeadOverlap(with point: Point) -> Bool {
         return head == point
+    }
+
+    func isHeadOutOfArea(_ area: Area) -> Bool {
+        return head.x < area.leftTop.x
+            || head.x >= area.rightBottom.x
+            || head.y < area.leftTop.y
+            || head.y >= area.rightBottom.y
     }
 
     // MARK: - Private Method

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC17A4F625FB267600C9313E /* UISwipeGestureRecognizer+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17A4F525FB267600C9313E /* UISwipeGestureRecognizer+Ext.swift */; };
+		FC17A4FE25FB581C00C9313E /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17A4FD25FB581C00C9313E /* UIColor+Ext.swift */; };
+		FC17A50325FB7C1000C9313E /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17A50225FB7C1000C9313E /* Area.swift */; };
 		FC37DF5825F74E8900AF2402 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37DF5725F74E8900AF2402 /* AppDelegate.swift */; };
 		FC37DF5A25F74E8900AF2402 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37DF5925F74E8900AF2402 /* SceneDelegate.swift */; };
 		FC37DF5C25F74E8900AF2402 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37DF5B25F74E8900AF2402 /* HomeViewController.swift */; };
@@ -18,6 +21,10 @@
 		FC37E01C25F7BFC000AF2402 /* Snake.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37E01B25F7BFC000AF2402 /* Snake.swift */; };
 		FC37E02125F7C26C00AF2402 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37E02025F7C26C00AF2402 /* Point.swift */; };
 		FC37E02A25F7D35C00AF2402 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37E02925F7D35C00AF2402 /* Queue.swift */; };
+		FC37E03B25F8F45C00AF2402 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37E03A25F8F45C00AF2402 /* GameViewController.swift */; };
+		FC37E04325F8F4CA00AF2402 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37E04225F8F4CA00AF2402 /* GameViewModel.swift */; };
+		FC37E04825F9011F00AF2402 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37E04725F9011F00AF2402 /* Food.swift */; };
+		FC37E05125F9116800AF2402 /* SnakeGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37E05025F9116800AF2402 /* SnakeGameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC17A4F525FB267600C9313E /* UISwipeGestureRecognizer+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISwipeGestureRecognizer+Ext.swift"; sourceTree = "<group>"; };
+		FC17A4FD25FB581C00C9313E /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		FC17A50225FB7C1000C9313E /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
 		FC37DF5425F74E8900AF2402 /* SnakeGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnakeGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC37DF5725F74E8900AF2402 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC37DF5925F74E8900AF2402 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +65,10 @@
 		FC37E01B25F7BFC000AF2402 /* Snake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snake.swift; sourceTree = "<group>"; };
 		FC37E02025F7C26C00AF2402 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		FC37E02925F7D35C00AF2402 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		FC37E03A25F8F45C00AF2402 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		FC37E04225F8F4CA00AF2402 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		FC37E04725F9011F00AF2402 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		FC37E05025F9116800AF2402 /* SnakeGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeGameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +96,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC17A4F425FB266400C9313E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FC17A4F525FB267600C9313E /* UISwipeGestureRecognizer+Ext.swift */,
+				FC17A4FD25FB581C00C9313E /* UIColor+Ext.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		FC37DF4B25F74E8900AF2402 = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				FC37E01225F7BF0700AF2402 /* Model */,
+				FC37E03825F8F42600AF2402 /* ViewController */,
+				FC37E03925F8F42F00AF2402 /* ViewModel */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -149,6 +174,7 @@
 		FC37DF9C25F7513700AF2402 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				FC17A4F425FB266400C9313E /* Extension */,
 				FC37E02825F7D33F00AF2402 /* DataStructure */,
 				FC37DF9D25F7514800AF2402 /* AppDelegate */,
 			);
@@ -189,6 +215,8 @@
 				FC37E01325F7BF1700AF2402 /* Direction.swift */,
 				FC37E01B25F7BFC000AF2402 /* Snake.swift */,
 				FC37E02025F7C26C00AF2402 /* Point.swift */,
+				FC37E04725F9011F00AF2402 /* Food.swift */,
+				FC17A50225FB7C1000C9313E /* Area.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -199,6 +227,23 @@
 				FC37E02925F7D35C00AF2402 /* Queue.swift */,
 			);
 			path = DataStructure;
+			sourceTree = "<group>";
+		};
+		FC37E03825F8F42600AF2402 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FC37E03A25F8F45C00AF2402 /* GameViewController.swift */,
+				FC37E05025F9116800AF2402 /* SnakeGameView.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		FC37E03925F8F42F00AF2402 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FC37E04225F8F4CA00AF2402 /* GameViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,11 +375,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC37E05125F9116800AF2402 /* SnakeGameView.swift in Sources */,
+				FC37E04325F8F4CA00AF2402 /* GameViewModel.swift in Sources */,
 				FC37DF5C25F74E8900AF2402 /* HomeViewController.swift in Sources */,
 				FC37E02A25F7D35C00AF2402 /* Queue.swift in Sources */,
 				FC37DF5825F74E8900AF2402 /* AppDelegate.swift in Sources */,
 				FC37E02125F7C26C00AF2402 /* Point.swift in Sources */,
+				FC17A4FE25FB581C00C9313E /* UIColor+Ext.swift in Sources */,
+				FC17A4F625FB267600C9313E /* UISwipeGestureRecognizer+Ext.swift in Sources */,
+				FC37E03B25F8F45C00AF2402 /* GameViewController.swift in Sources */,
+				FC17A50325FB7C1000C9313E /* Area.swift in Sources */,
 				FC37E01C25F7BFC000AF2402 /* Snake.swift in Sources */,
+				FC37E04825F9011F00AF2402 /* Food.swift in Sources */,
 				FC37DF5A25F74E8900AF2402 /* SceneDelegate.swift in Sources */,
 				FC37E01425F7BF1700AF2402 /* Direction.swift in Sources */,
 			);
