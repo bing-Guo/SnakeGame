@@ -123,8 +123,8 @@ extension GameViewController {
             viewModel?.start()
         }
 
-        let backButton = UIAlertAction(title: "Back", style: .default) { _ in
-            print("Back")
+        let backButton = UIAlertAction(title: "Back", style: .default) { [weak self] _ in
+            self?.dismiss(animated: false, completion: nil)
         }
 
         alert.addAction(tryAgainButton)
