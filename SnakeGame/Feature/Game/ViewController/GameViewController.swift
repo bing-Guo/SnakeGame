@@ -30,6 +30,10 @@ class GameViewController: UIViewController {
         setupViewModel()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
@@ -157,7 +161,7 @@ extension GameViewController: SnakeGameProtocol {
         return viewModel.snake.path
     }
 
-    func getFoodPosition() -> Point {
-        return viewModel.food.position
+    func getFoodPosition() -> Point? {
+        return viewModel.food?.position
     }
 }

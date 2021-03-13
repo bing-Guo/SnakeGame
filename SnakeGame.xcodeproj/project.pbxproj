@@ -10,6 +10,9 @@
 		FC17A4F625FB267600C9313E /* UISwipeGestureRecognizer+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17A4F525FB267600C9313E /* UISwipeGestureRecognizer+Ext.swift */; };
 		FC17A4FE25FB581C00C9313E /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17A4FD25FB581C00C9313E /* UIColor+Ext.swift */; };
 		FC17A50325FB7C1000C9313E /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17A50225FB7C1000C9313E /* Area.swift */; };
+		FC17A51225FC7DE600C9313E /* BackgroundLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17A51125FC7DE600C9313E /* BackgroundLayer.swift */; };
+		FC17A51725FC7E0700C9313E /* FoodLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17A51625FC7E0700C9313E /* FoodLayer.swift */; };
+		FC17A51C25FC7E1C00C9313E /* SnakeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17A51B25FC7E1C00C9313E /* SnakeLayer.swift */; };
 		FC37DF5825F74E8900AF2402 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37DF5725F74E8900AF2402 /* AppDelegate.swift */; };
 		FC37DF5A25F74E8900AF2402 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37DF5925F74E8900AF2402 /* SceneDelegate.swift */; };
 		FC37DF5C25F74E8900AF2402 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37DF5B25F74E8900AF2402 /* HomeViewController.swift */; };
@@ -48,6 +51,9 @@
 		FC17A4F525FB267600C9313E /* UISwipeGestureRecognizer+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISwipeGestureRecognizer+Ext.swift"; sourceTree = "<group>"; };
 		FC17A4FD25FB581C00C9313E /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		FC17A50225FB7C1000C9313E /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
+		FC17A51125FC7DE600C9313E /* BackgroundLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundLayer.swift; sourceTree = "<group>"; };
+		FC17A51625FC7E0700C9313E /* FoodLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLayer.swift; sourceTree = "<group>"; };
+		FC17A51B25FC7E1C00C9313E /* SnakeLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeLayer.swift; sourceTree = "<group>"; };
 		FC37DF5425F74E8900AF2402 /* SnakeGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnakeGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC37DF5725F74E8900AF2402 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC37DF5925F74E8900AF2402 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +111,17 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		FC17A50D25FC76DB00C9313E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FC37E05025F9116800AF2402 /* SnakeGameView.swift */,
+				FC17A51125FC7DE600C9313E /* BackgroundLayer.swift */,
+				FC17A51625FC7E0700C9313E /* FoodLayer.swift */,
+				FC17A51B25FC7E1C00C9313E /* SnakeLayer.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		FC37DF4B25F74E8900AF2402 = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +173,7 @@
 		FC37DF9725F7508900AF2402 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				FC17A50D25FC76DB00C9313E /* View */,
 				FC37E01225F7BF0700AF2402 /* Model */,
 				FC37E03825F8F42600AF2402 /* ViewController */,
 				FC37E03925F8F42F00AF2402 /* ViewModel */,
@@ -233,7 +251,6 @@
 			isa = PBXGroup;
 			children = (
 				FC37E03A25F8F45C00AF2402 /* GameViewController.swift */,
-				FC37E05025F9116800AF2402 /* SnakeGameView.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -382,6 +399,7 @@
 				FC37DF5825F74E8900AF2402 /* AppDelegate.swift in Sources */,
 				FC37E02125F7C26C00AF2402 /* Point.swift in Sources */,
 				FC17A4FE25FB581C00C9313E /* UIColor+Ext.swift in Sources */,
+				FC17A51225FC7DE600C9313E /* BackgroundLayer.swift in Sources */,
 				FC17A4F625FB267600C9313E /* UISwipeGestureRecognizer+Ext.swift in Sources */,
 				FC37E03B25F8F45C00AF2402 /* GameViewController.swift in Sources */,
 				FC17A50325FB7C1000C9313E /* Area.swift in Sources */,
@@ -389,6 +407,8 @@
 				FC37E04825F9011F00AF2402 /* Food.swift in Sources */,
 				FC37DF5A25F74E8900AF2402 /* SceneDelegate.swift in Sources */,
 				FC37E01425F7BF1700AF2402 /* Direction.swift in Sources */,
+				FC17A51C25FC7E1C00C9313E /* SnakeLayer.swift in Sources */,
+				FC17A51725FC7E0700C9313E /* FoodLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
