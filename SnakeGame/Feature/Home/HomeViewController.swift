@@ -7,4 +7,3 @@ class HomeViewController: UIViewController {
         self.view.backgroundColor = .white
     }
 }
-

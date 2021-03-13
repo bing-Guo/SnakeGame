@@ -24,7 +24,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .black
+        self.view.backgroundColor = UIColor(rgb: 0x253645)
 
         setupGestureConfig()
         setupViewModel()
@@ -50,18 +50,20 @@ class GameViewController: UIViewController {
 extension GameViewController {
     // MARK: - Setup
     private func setupSnakeGameView() {
+        snakeGameView.layer.borderWidth = 1
+        snakeGameView.layer.borderColor = UIColor.white.cgColor
         snakeGameView.translatesAutoresizingMaskIntoConstraints = false
-        snakeGameView.backgroundColor = UIColor(rgb: 0xACB807)
+        snakeGameView.backgroundColor = UIColor(rgb: 0x253645)
         snakeGameView.delegate = self
 
         self.view.addSubview(snakeGameView)
 
         let frame = getSnakeGameFrame()
         snakeGameView.frame = frame
-        viewModel.boundary = Area(leftTop: Point(x: 0, y: 0),
-                                  rightTop: Point(x: Int(frame.width), y: 0),
-                                  leftBottom: Point(x: 0, y: Int(frame.height)),
-                                  rightBottom: Point(x: Int(frame.width), y: Int(frame.height)))
+        viewModel.area = Area(leftTop: Point(x: 0, y: 0),
+                              rightTop: Point(x: Int(frame.width), y: 0),
+                              leftBottom: Point(x: 0, y: Int(frame.height)),
+                              rightBottom: Point(x: Int(frame.width), y: Int(frame.height)))
     }
 
     private func getSnakeGameFrame() -> CGRect {
@@ -137,13 +139,16 @@ extension GameViewController {
     }
 
     @objc private func updateView(_ sender: Timer) {
-        print(viewModel.snake.path)
         viewModel.checkGameState()
     }
 }
 
 // MARK: - SnakeGameProtocol
 extension GameViewController: SnakeGameProtocol {
+    func getArea() -> Area {
+        return viewModel.area
+    }
+
     func getUnit() -> Int {
         return viewModel.gridUnit
     }

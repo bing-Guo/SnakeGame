@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 
 protocol SnakeGameProtocol: NSObject {
+    func getArea() -> Area
     func getUnit() -> Int
     func getSnakePath() -> [Point]
     func getFoodPosition() -> Point
@@ -10,10 +11,10 @@ protocol SnakeGameProtocol: NSObject {
 class SnakeGameView: UIView {
     weak var delegate: SnakeGameProtocol?
 
-    var snakeColor: UIColor = .black
-    var snakeBorderColor: UIColor = UIColor(rgb: 0xACB807)
-    var foodColor: UIColor = UIColor(rgb: 0xB8211A)
-    var foodBorderColor: UIColor = UIColor(rgb: 0xACB807)
+    var snakeColor = UIColor(rgb: 0x2E8ED4)
+    var foodColor = UIColor(rgb: 0xB8211A)
+    var oddGridColor = UIColor(rgb: 0x1F2C37)
+    var evenGridColor = UIColor(rgb: 0x253645)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,54 +27,93 @@ class SnakeGameView: UIView {
     override func draw(_ rect: CGRect) {
         super.draw(rect)
 
-        clearLayer()
+        guard let delegate = delegate else { return }
 
-        if let layer = generateFoodLayer() {
-            self.layer.addSublayer(layer)
+        let size = delegate.getUnit()
+        let area = delegate.getArea()
+        let foodPoint = delegate.getFoodPosition()
+        let snakePoints = delegate.getSnakePath()
+
+        if let sublayers = self.layer.sublayers, sublayers.count >= 2 {
+            self.layer.sublayers!.removeSubrange(1..<sublayers.count)
+        } else {
+            let backgroundLayer = generateBackgroundLayer(area: area, size: size)
+
+            self.layer.addSublayer(backgroundLayer[0])
+            self.layer.addSublayer(backgroundLayer[1])
         }
 
-        if let layer = generateSnakeLayer() {
-            self.layer.addSublayer(layer)
-        }
+        self.layer.addSublayer(generateFoodLayer(point: foodPoint, size: size))
+        self.layer.addSublayer(generateSnakeLayer(points: snakePoints, size: size))
     }
 
-    private func clearLayer() {
-        self.layer.sublayers = nil
-    }
-
-    private func generateSnakeLayer() -> CAShapeLayer? {
-        guard let delegate = delegate else { return nil }
-
+    private func generateSnakeLayer(points: [Point], size: Int) -> CAShapeLayer {
         let shapeLayer = CAShapeLayer()
         let path = UIBezierPath()
-        let size = delegate.getUnit()
 
-        for point in delegate.getSnakePath() {
+        for point in points {
             path.append(UIBezierPath(rect: CGRect(x: point.x, y: point.y, width: size, height: size)))
         }
 
         shapeLayer.path = path.cgPath
-        shapeLayer.strokeColor = snakeBorderColor.cgColor
         shapeLayer.fillColor = snakeColor.cgColor
 
         return shapeLayer
     }
 
-    private func generateFoodLayer() -> CAShapeLayer? {
-        guard let delegate = delegate else { return nil }
-
+    private func generateFoodLayer(point: Point, size: Int) -> CAShapeLayer {
         let shapeLayer = CAShapeLayer()
-        let point = delegate.getFoodPosition()
-        let size = delegate.getUnit()
 
-        shapeLayer.path = UIBezierPath(rect: CGRect(x: point.x, y: point.y, width: size, height: size)).cgPath
-        shapeLayer.strokeColor = foodBorderColor.cgColor
+        shapeLayer.path = UIBezierPath(roundedRect: CGRect(x: point.x, y: point.y, width: size, height: size), cornerRadius: 2).cgPath
         shapeLayer.fillColor = foodColor.cgColor
 
         return shapeLayer
     }
 
-    private func generateBorderLayer() -> CAShapeLayer? {
-        return nil
+    private func generateBackgroundLayer(area: Area, size: Int) -> [CAShapeLayer] {
+        let oddShapeLayer = CAShapeLayer()
+        let evenShapeLayer = CAShapeLayer()
+
+        let oddPath = UIBezierPath()
+        let evenPath = UIBezierPath()
+
+        let point2D = generateGridPoints(maxX: area.rightBottom.x, maxY: area.rightBottom.y, size: size)
+
+        for (row, points) in point2D.enumerated() {
+            let offset = (row % 2 == 0) ? 0 : 1
+
+            for (col, point) in points.enumerated() {
+                if col % 2 == offset {
+                    let path = UIBezierPath(roundedRect: CGRect(x: point.x, y: point.y, width: size, height: size), cornerRadius: 2)
+                    evenPath.append(path)
+                } else {
+                    let path = UIBezierPath(roundedRect: CGRect(x: point.x, y: point.y, width: size, height: size), cornerRadius: 2)
+                    oddPath.append(path)
+                }
+            }
+        }
+
+        oddShapeLayer.path = oddPath.cgPath
+        oddShapeLayer.fillColor = oddGridColor.cgColor
+        evenShapeLayer.path = oddPath.cgPath
+        evenShapeLayer.fillColor = evenGridColor.cgColor
+
+        return [oddShapeLayer, evenShapeLayer]
+    }
+
+    private func generateGridPoints(maxX: Int, maxY: Int, size: Int) -> [[Point]] {
+        var points = [[Point]]()
+
+        for y in stride(from: 0, to: maxY, by: size) {
+            var temp = [Point]()
+
+            for x in stride(from: 0, to: maxX, by: size) {
+                temp.append(Point(x: x, y: y))
+            }
+
+            points.append(temp)
+        }
+
+        return points
     }
 }

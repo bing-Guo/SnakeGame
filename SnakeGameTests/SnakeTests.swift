@@ -123,7 +123,14 @@ class SnakeTests: XCTestCase {
         snake.moveForward()
         snake.moveForward()
 
-        XCTAssertTrue(snake.isHeadOverlap(with: point), "snake's head point: \(snake.head) is not hit \(point)")
+        XCTAssertTrue(snake.isOverlap(with: point), "snake's head point: \(snake.head) is not overlap \(point)")
+    }
+
+    func testSnake_DetectBodyOverlap_True() throws {
+        let snake = Snake(start: Point(x: 10, y: 10), direction: .right, length: 5, unit: 10)
+        let point = Point(x: 30, y: 10)
+
+        XCTAssertTrue(snake.isOverlap(with: point), "snake's head point: \(snake.head) is not overlap \(point)")
     }
 
     func testSnake_DetectHeadOutOfArea_True() throws {

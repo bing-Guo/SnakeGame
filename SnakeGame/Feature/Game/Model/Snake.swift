@@ -58,11 +58,11 @@ class Snake {
     }
 
     func isBodyOverlap() -> Bool {
-        return body.contains { isHeadOverlap(with: $0) }
+        return body.contains { $0 == head }
     }
 
-    func isHeadOverlap(with point: Point) -> Bool {
-        return head == point
+    func isOverlap(with point: Point) -> Bool {
+        return path.contains { $0 == point }
     }
 
     func isHeadOutOfArea(_ area: Area) -> Bool {
