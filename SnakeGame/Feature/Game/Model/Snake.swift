@@ -21,6 +21,8 @@ class Snake {
 
     // MARK: - Initializer
     init(start: Point, direction: Direction, length: Int, unit: Int) {
+        assert(length >= 1, "Length must be larger or equal 1.")
+        
         self.unit = unit
         self.direction = direction
 
@@ -76,9 +78,9 @@ class Snake {
     private func isAllowTurnDirection(_ newDirection: Direction) -> Bool {
         switch newDirection {
         case .up, .down:
-            return (direction == .left || direction == .right) ? true : false
+            return direction == .left || direction == .right
         case .left, .right:
-            return (direction == .up || direction == .down) ? true : false
+            return direction == .up || direction == .down
         }
     }
 }

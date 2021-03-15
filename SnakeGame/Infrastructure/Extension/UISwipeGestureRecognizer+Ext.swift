@@ -13,7 +13,7 @@ extension UISwipeGestureRecognizer.Direction {
         case .down:
             return .down
         default:
-            return .up
+            fatalError("Unknown cases.")
         }
     }
 }

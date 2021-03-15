@@ -2,11 +2,20 @@ import UIKit
 
 class GameViewController: UIViewController {
     let viewModel: GameViewModel
-    let snakeGameView = SnakeGameView()
     let swipLeftGesture = UISwipeGestureRecognizer()
     let swipRightGesture = UISwipeGestureRecognizer()
     let swipUpGesture = UISwipeGestureRecognizer()
     let swipDownGesture = UISwipeGestureRecognizer()
+    let snakeGameView: SnakeGameView = {
+        let view = SnakeGameView()
+
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.white.cgColor
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(rgb: 0x253645)
+
+        return view
+    }()
 
     var timer: Timer?
 
@@ -30,10 +39,6 @@ class GameViewController: UIViewController {
         setupViewModel()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
@@ -54,10 +59,6 @@ class GameViewController: UIViewController {
 extension GameViewController {
     // MARK: - Setup
     private func setupSnakeGameView() {
-        snakeGameView.layer.borderWidth = 1
-        snakeGameView.layer.borderColor = UIColor.white.cgColor
-        snakeGameView.translatesAutoresizingMaskIntoConstraints = false
-        snakeGameView.backgroundColor = UIColor(rgb: 0x253645)
         snakeGameView.delegate = self
 
         self.view.addSubview(snakeGameView)
@@ -109,7 +110,7 @@ extension GameViewController {
         }
 
         viewModel.updateView = { [unowned self] in
-            self.snakeGameView.draw(.zero)
+            self.snakeGameView.setNeedsDisplay()
         }
 
         viewModel.showGameOverView = { [unowned self] in

@@ -5,11 +5,7 @@ struct Point {
     let y: Int
 }
 
-extension Point: Equatable {
-    static func == (lhs: Point, rhs: Point) -> Bool {
-        return lhs.x == rhs.x && lhs.y == rhs.y
-    }
-}
+extension Point: Equatable {}
 
 extension Point: CustomStringConvertible {
     var description: String {

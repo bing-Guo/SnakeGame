@@ -33,7 +33,10 @@ class SnakeGameView: UIView {
     override func draw(_ rect: CGRect) {
         super.draw(rect)
 
-        guard let delegate = delegate else { return }
+        guard let delegate = delegate else {
+            assertionFailure("Delegate must be set before use this class.")
+            return
+        }
 
         let size = delegate.getUnit()
         let area = delegate.getArea()
@@ -49,11 +52,14 @@ class SnakeGameView: UIView {
             }
         }
 
-        if self.layer.sublayers != nil {
-            clearLayers()
+        clearLayers()
 
-            self.layer.sublayers! += FoodLayer(size: size, point: foodPoint, color: foodColor).generateLayer()
-            self.layer.sublayers! += SnakeLayer(size: size, points: snakePoints, color: snakeColor).generateLayer()
+        for layer in FoodLayer(size: size, point: foodPoint, color: foodColor).generateLayer() {
+            self.layer.addSublayer(layer)
+        }
+
+        for layer in SnakeLayer(size: size, points: snakePoints, color: snakeColor).generateLayer() {
+            self.layer.addSublayer(layer)
         }
     }
 

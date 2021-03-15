@@ -53,6 +53,7 @@ class GameViewModel {
         snake.turnDirection(direction)
     }
 
+    // MARK: - Private Method
     private func isFailedState() -> Bool {
         return snake.isBodyOverlap() || snake.isHeadOutOfArea(area)
     }
