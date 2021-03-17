@@ -3,7 +3,7 @@ import Foundation
 class GameViewModel {
     private var growthCount = 0
 
-    let timeInterval: Double = 0.2
+    let timeInterval: Double = 0.1
     let gridUnit = 20
     let growthRate = 3
 
@@ -31,13 +31,13 @@ class GameViewModel {
     }
 
     func checkGameState() {
-        if growthCount > 0 {
-            snake.lengthenBody()
-            growthCount -= 1
-        } else if let food = food, snake.isOverlap(with: food.position) {
+        if let food = food, snake.isOverlap(with: food.position) {
             snake.lengthenBody()
             resetFood()
             growthCount += (growthRate - 1)
+        } else if growthCount > 0 {
+            snake.lengthenBody()
+            growthCount -= 1
         } else {
             snake.moveForward()
         }
@@ -50,6 +50,7 @@ class GameViewModel {
     }
 
     func turnDirection(_ direction: Direction) {
+        print(direction, snake.path)
         snake.turnDirection(direction)
     }
 
