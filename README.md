@@ -15,4 +15,4 @@
 ## 繪圖方式
 原先在UIBezierPath與CGContext做考量，基於以下兩個原因，最後採用UIBezierPath。
 1. UIBezierPath屬於在Core Animation，CGContext屬於在Core Graphics，而Core Animation是封裝Core Graphics，考量到只需要繪畫背景、蛇、食物，都是矩形就能完成的事情，不太需要用到較底層的CGContext
-2. 某篇[stackoverflow](https://stackoverflow.com/questions/6327817/why-is-uibezierpath-faster-than-core-graphics-path)測出在一些情境下UIBezierPath會優於Core Graphics，但個人實測用模擬去繪製16000個5*5矩形，UIBezierPath與CGContext效能並無相差，所以，在目前的需求下，選擇兩者是不會差太多的。
+2. 某篇[stackoverflow](https://stackoverflow.com/questions/6327817/why-is-uibezierpath-faster-than-core-graphics-path)表示UIBezierPath是對Core Graphics進行封裝，所以性能是差不多的，但個人實測用模擬去繪製16000個5*5矩形，UIBezierPath與CGContext效能並無相差，所以，在目前的需求下，選擇兩者是不會差太多的。
